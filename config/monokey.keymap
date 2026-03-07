@@ -39,6 +39,47 @@
 
             bindings = <&mkp MB2>;
         };
+        BT0_Win: BT0_Win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 0>;
+            label = "BT0_WIN";
+        };
+    
+        BT1_Mac: BT1_Mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &to 7>;
+            label = "BT1_MAC";
+        };
+    
+        BT2_win: BT2_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &to 0>;
+            label = "BT2_WIN";
+        };
+    
+        BT3_win: BT3_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3 &to 0>;
+            label = "BT3_WIN";
+        };
+    
+        DC0_win: DC0_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 0 &to 0>;
+            label = "DC0_WIN";
+        };
+    
+        DC1_mac: DC1_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 1 &to 7>;
+            label = "DC1_MAC";
+        };
     };
 
     keymap {
