@@ -91,7 +91,7 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                 &kp T                                               &kp Y         &kp U  &kp I      &kp O         &kp P
-&kp A             &kp S         &kp D         &kp F                 &kp G                                               &kp H         &kp J  &kp K      &kp L         &kp MINUS
+&mt LCTRL A       &kp S         &kp D         &kp F                 &kp G                                               &kp H         &kp J  &kp K      &kp L         &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B                                               &kp N         &kp M  &kp COMMA  &kp PERIOD    &mt RIGHT_SHIFT SLASH
 &kp TAB           &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LCTRL SPACE  &lt 1 LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 RETURN                    &kp C_VOL_DN  &kp C_VOLUME_UP
             >;
@@ -121,7 +121,7 @@
             bindings = <
 &trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
 &trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LA(LS(TAB))   &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RC(TAB))
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))   &mkp MB4            &trans          &mkp MB5         &kp LC(TAB)
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))   &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
 &trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
@@ -157,10 +157,10 @@
 
         mac-def {
             bindings = <
-&kp Q    &kp W      &kp E     &kp R                 &kp T                                                      &kp Y        &kp U  &kp I      &kp O              &kp P
-&kp A    &kp S      &kp D     &kp F                 &kp G                                                      &kp H        &kp J  &kp K      &kp L              &kp MINUS
-&kp Z    &kp X      &kp C     &kp V                 &kp B                                                      &kp N        &kp M  &kp COMMA  &kp DOT            &mt RSHIFT SLASH
-&kp TAB  &kp LCTRL  &kp LALT  &mt LSHFT LANGUAGE_2  &mt LEFT_COMMAND SPACE  &lt 1 LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 ENTER                    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&kp Q             &kp W      &kp E     &kp R                 &kp T                                                      &kp Y        &kp U  &kp I      &kp O              &kp P
+&mt LEFT_GUI A    &kp S      &kp D     &kp F                 &kp G                                                      &kp H        &kp J  &kp K      &kp L              &kp MINUS
+&mt LEFT_SHIFT Z  &kp X      &kp C     &kp V                 &kp B                                                      &kp N        &kp M  &kp COMMA  &kp DOT            &mt RSHIFT SLASH
+&kp TAB           &kp LCTRL  &kp LALT  &mt LSHFT LANGUAGE_2  &mt LEFT_COMMAND SPACE  &lt 1 LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 ENTER                    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
             >;
         };
 
@@ -177,7 +177,7 @@
             bindings = <
 &trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(F)           &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp RG(M)
 &trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LS(LEFT))    &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RG(TAB)
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LA(LEFT_ARROW)  &mkp MB4            &trans          &mkp MB5         &kp RA(RIGHT)
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LA(LEFT_ARROW)  &mkp MB4            &kp F11         &mkp MB5         &kp RA(RIGHT)
 &trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                  &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
