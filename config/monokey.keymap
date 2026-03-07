@@ -148,10 +148,10 @@
 
         Bluetooth {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &BT0_Win       &BT1_Mac  &BT2_win       &BT3_win       &trans
-&trans  &trans  &trans  &trans  &trans                  &bt BT_DISC 0  &DC1_mac  &bt BT_DISC 2  &bt BT_DISC 3  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans         &trans    &trans         &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader                             &bt BT_CLR     &bt BT_CLR_ALL
+&trans  &trans  &trans  &trans  &trans                  &BT0_Win     &BT1_Mac  &BT2_win       &BT3_win       &trans
+&trans  &trans  &trans  &trans  &trans                  &DC0_win     &DC1_mac  &bt BT_DISC 2  &bt BT_DISC 3  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans       &trans    &trans         &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader                           &bt BT_CLR     &bt BT_CLR_ALL
             >;
         };
 
