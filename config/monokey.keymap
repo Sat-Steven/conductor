@@ -93,7 +93,7 @@
 &kp Q             &kp W         &kp E         &kp R                 &kp T                                               &kp Y         &kp U  &kp I      &kp O         &kp P
 &kp A             &kp S         &kp D         &kp F                 &kp G                                               &kp H         &kp J  &kp K      &kp L         &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B                                               &kp N         &kp M  &kp COMMA  &kp PERIOD    &mt RIGHT_SHIFT SLASH
-&kp TAB           &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &lt 1 SPACE  &mt LCTRL LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 RETURN                    &kp C_VOL_DN  &kp C_VOLUME_UP
+&kp TAB           &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LCTRL SPACE  &lt 1 LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 RETURN                    &kp C_VOL_DN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -101,10 +101,10 @@
 
         FUNCTION {
             bindings = <
-&kp EXCLAMATION  &kp AT_SIGN    &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp PRINTSCREEN  &kp LS(LG(S))  &trans    &trans      &trans                       &kp MINUS  &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH
-&trans           &trans         &trans    &trans      &trans                       &trans     &trans         &kp SEMICOLON     &kp SINGLE_QUOTE      &kp GRAVE
-&kp ESCAPE       &trans         &trans    &trans      &trans       &mo 6  &kp DEL  &trans                                      &trans                &trans
+&kp EXCLAMATION      &kp AT_SIGN    &kp HASH  &kp DOLLAR  &kp PERCENT                   &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp LG(PRINTSCREEN)  &kp LS(LG(S))  &trans    &trans      &trans                        &kp MINUS  &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH
+&trans               &trans         &trans    &trans      &trans                        &trans     &trans         &kp SEMICOLON     &kp SINGLE_QUOTE      &kp GRAVE
+&kp ESCAPE           &trans         &trans    &trans      &mo 6        &trans  &kp DEL  &trans                                      &trans                &trans
             >;
         };
 
@@ -119,9 +119,9 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LC(UP_ARROW)  &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp LC(DOWN_ARROW)
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LC(A)         &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LC(E)
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &mkp MB4          &kp LG(LEFT)        &trans          &kp RG(RIGHT)    &mkp MB5
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LA(LEFT)      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RIGHT)
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))   &mkp MB4            &trans          &mkp MB5         &kp LC(TAB)
 &trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
@@ -160,25 +160,25 @@
 &kp Q    &kp W      &kp E     &kp R                 &kp T                                                      &kp Y        &kp U  &kp I      &kp O              &kp P
 &kp A    &kp S      &kp D     &kp F                 &kp G                                                      &kp H        &kp J  &kp K      &kp L              &kp MINUS
 &kp Z    &kp X      &kp C     &kp V                 &kp B                                                      &kp N        &kp M  &kp COMMA  &kp DOT            &mt RSHIFT SLASH
-&kp TAB  &kp LCTRL  &kp LALT  &mt LSHFT LANGUAGE_2  &lt 8 SPACE  &mt LEFT_COMMAND LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 ENTER                    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&kp TAB  &kp LCTRL  &kp LALT  &mt LSHFT LANGUAGE_2  &mt LEFT_COMMAND SPACE  &lt 1 LANGUAGE_1  &lt 2 BACKSPACE  &lt 3 ENTER                    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
             >;
         };
 
         mac_function {
             bindings = <
-&kp EXCLAMATION       &kp AT_SIGN           &kp HASH        &kp DOLLAR  &kp PERCENT                  &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(N5))  &trans      &trans                       &kp MINUS  &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH
-&trans                &trans                &trans          &trans      &trans                       &trans     &trans         &kp SEMICOLON     &kp SINGLE_QUOTE      &kp GRAVE
-&kp ESCAPE            &trans                &trans          &trans      &trans       &mo 6  &kp DEL  &trans                                      &trans                &trans
+&kp EXCLAMATION       &kp AT_SIGN           &kp HASH        &kp DOLLAR  &kp PERCENT                   &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(N5))  &trans      &trans                        &kp MINUS  &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH
+&trans                &trans                &trans          &trans      &trans                        &trans     &trans         &kp SEMICOLON     &kp SINGLE_QUOTE      &kp GRAVE
+&kp ESCAPE            &trans                &trans          &trans      &mo 6        &trans  &kp DEL  &trans                                      &trans                &trans
             >;
         };
 
         mac_arrow {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LC(UP_ARROW)  &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp LC(DOWN_ARROW)
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LC(A)         &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LC(E)
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp C_PREVIOUS    &kp LG(LEFT)        &trans          &kp RG(RIGHT)    &kp C_NEXT
-&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(F)       &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp RG(M)
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LEFT)    &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LC(LA(RIGHT))
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp C_PREVIOUS  &mkp MB4            &trans          &mkp MB5         &kp C_NEXT
+&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                              &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
