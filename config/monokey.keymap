@@ -120,7 +120,7 @@
         ARROW {
             bindings = <
 &trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LA(LEFT)      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RIGHT)
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LA(LS(TAB))   &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RC(TAB))
 &trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))   &mkp MB4            &trans          &mkp MB5         &kp LC(TAB)
 &trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                &kp C_BRI_DEC    &kp C_BRI_INC
             >;
@@ -175,10 +175,10 @@
 
         mac_arrow {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(F)       &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp RG(M)
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LEFT)    &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LC(LA(RIGHT))
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp C_PREVIOUS  &mkp MB4            &trans          &mkp MB5         &kp C_NEXT
-&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                              &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(F)           &kp LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)    &kp RG(M)
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LS(LEFT))    &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RG(TAB)
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LA(LEFT_ARROW)  &mkp MB4            &trans          &mkp MB5         &kp RA(RIGHT)
+&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                  &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
