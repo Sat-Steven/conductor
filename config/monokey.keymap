@@ -133,10 +133,10 @@
 
         NUM {
             bindings = <
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTRK   &kp SLASH
-&kp F6   &kp F7   &kp F8   &kp F9   &kp F10                  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS    &kp MINUS
-&kp F11  &kp F12  &kp F13  &kp F14  &kp F15                  &kp N7        &kp N8        &kp N9        &kp PERIOD  &trans
-&trans   &trans   &trans   &trans   &trans   &trans  &trans  &kp N0                                    &trans      &trans
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTRK    &kp SLASH
+&kp F6   &kp F7   &kp F8   &kp F9   &kp F10                  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_PLUS  &kp MINUS
+&kp F11  &kp F12  &kp F13  &kp F14  &kp F15                  &kp N7        &kp N8        &kp N9        &kp PERIOD   &trans
+&trans   &trans   &trans   &trans   &trans   &trans  &trans  &kp N0                                    &trans       &trans
             >;
         };
 
@@ -180,10 +180,10 @@
 
         ARROW_ipad {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &ipad_CtrlCntr       &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LS(TAB))      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LA(LG(LS(TAB)))  &mkp MB4            &kp LG(H)       &mkp MB5         &kp LA(LG(TAB))
-&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                   &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                         &ipad_CtrlCntr       &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                         &kp LG(LS(TAB))      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                               &kp LA(LG(LS(TAB)))  &mkp MB4            &kp LG(H)       &mkp MB5         &kp LA(LG(TAB))
+&trans  &trans  &trans                &trans                &trans                &kp LG(SPACE)  &trans  &trans                                                   &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
