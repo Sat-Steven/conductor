@@ -39,6 +39,7 @@
 
             bindings = <&mkp MB2>;
         };
+
         BT0_Win: BT0_Win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -49,7 +50,7 @@
         BT1_Mac: BT1_Mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 7>;
+            bindings = <&bt BT_SEL 1>;
             label = "BT1_MAC";
         };
     
