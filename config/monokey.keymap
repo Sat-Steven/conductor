@@ -79,18 +79,32 @@
             label = "BT1_IPAD";
         };
 
-        ipad_CtrlCntr: ipad_CtrlCntr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp C>;
-            label = "IPAD_CTRLCNTR";
-        };
-
         ipad_appswtch: ipad_appswtch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp UP_ARROW>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
             label = "IPAD_APPSWTCH";
+        };
+
+        ipad_cotrlcntr: ipad_cotrlcntr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
+            label = "IPAD_COTRLCNTR";
         };
     };
 
@@ -180,7 +194,7 @@
 
         ARROW_ipad {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                         &ipad_CtrlCntr       &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                         &ipad_cotrlcntr      &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
 &trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                         &kp LG(LS(TAB))      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
 &trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                               &kp LA(LG(LS(TAB)))  &mkp MB4            &kp LG(H)       &mkp MB5         &kp LA(LG(TAB))
 &trans  &trans  &trans                &trans                &trans                &kp LG(SPACE)  &trans  &trans                                                   &kp C_BRI_DEC    &kp C_BRI_INC
