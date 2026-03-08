@@ -54,46 +54,29 @@
             toggle-mode = "off";
         };
 
-        BT0_Win: BT0_Win {
+        BT0_win: BT0_Win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &tog 0>;
+            bindings =
+                <&tog_off 7 &tog_off 9>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 0>,
+                <&macro_wait_time 200>;
+
             label = "BT0_WIN";
         };
 
-        BT1_ipad: BT1_Mac {
+        BT1_ipad: BT1_ipad {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>;
-            label = "BT1_MAC";
-        };
+            bindings =
+                <&tog_off 0 &tog_off 9>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 1>,
+                <&macro_wait_time 200>,
+                <&tog_on 7>;
 
-        BT2_win: BT2_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2 &tog 0>;
-            label = "BT2_WIN";
-        };
-
-        BT3_win: BT3_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3 &tog 0>;
-            label = "BT3_WIN";
-        };
-
-        DC0_win: DC0_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_DISC 0 &tog 0>;
-            label = "DC0_WIN";
-        };
-
-        DC1_ipad: DC1_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_DISC 1 &tog 0>;
-            label = "DC1_MAC";
+            label = "BT1_IPAD";
         };
     };
 
@@ -163,10 +146,10 @@
 
         Bluetooth {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &BT0_Win     &BT1_ipad  &BT2_win       &BT3_win       &trans
-&trans  &trans  &trans  &trans  &trans                  &DC0_win     &DC1_ipad  &bt BT_DISC 2  &bt BT_DISC 3  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans       &trans     &trans         &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader                            &bt BT_CLR     &bt BT_CLR_ALL
+&trans  &trans  &trans  &trans  &trans                  &BT0_win       &BT1_ipad      &bt BT_SEL 2   &bt BT_SEL 3   &trans
+&trans  &trans  &trans  &trans  &trans                  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans         &trans         &trans         &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader                                  &bt BT_CLR     &bt BT_CLR_ALL
             >;
         };
 
