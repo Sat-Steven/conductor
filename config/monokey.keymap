@@ -50,8 +50,7 @@
         BT1_ipad: BT1_Mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>, <&macro_wait_time 200>, <&tog 7>;
-
+            bindings = <&bt BT_SEL 1>;
             label = "BT1_MAC";
         };
 
@@ -152,7 +151,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                  &BT0_Win     &BT1_ipad  &BT2_win       &BT3_win       &trans
 &trans  &trans  &trans  &trans  &trans                  &DC0_win     &DC1_ipad  &bt BT_DISC 2  &bt BT_DISC 3  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans       &tog 7     &bt BT_SEL 1   &trans         &trans
+&trans  &trans  &trans  &trans  &trans                  &trans       &trans     &trans         &trans         &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader                            &bt BT_CLR     &bt BT_CLR_ALL
             >;
         };
