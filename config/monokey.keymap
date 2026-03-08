@@ -78,6 +78,20 @@
 
             label = "BT1_IPAD";
         };
+
+        ipad_CtrlCntr: ipad_CtrlCntr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GLOBE &kp C>;
+            label = "IPAD_CTRLCNTR";
+        };
+
+        ipad_appswtch: ipad_appswtch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GLOBE &kp UP_ARROW>;
+            label = "IPAD_APPSWTCH";
+        };
     };
 
     macros {
@@ -102,7 +116,7 @@
 &kp Q             &kp W      &kp E         &kp R                 &kp T                                                  &kp Y        &kp U  &kp I      &kp O         &kp P
 &kp A             &kp S      &kp D         &kp F                 &kp G                                                  &kp H        &kp J  &kp K      &kp L         &kp MINUS
 &mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                 &kp B                                                  &kp N        &kp M  &kp COMMA  &kp PERIOD    &mt RIGHT_SHIFT SLASH
-&kp TAB           &kp LCTRL  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LEFT_GUI SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 8 ENTER                    &kp C_VOL_DN  &kp C_VOLUME_UP
+&kp TAB           &kp GLOBE  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LEFT_GUI SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 8 ENTER                    &kp C_VOL_DN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -166,7 +180,7 @@
 
         ARROW_ipad {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)     &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &ipad_CtrlCntr       &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
 &trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &kp LG(LS(TAB))      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
 &trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LA(LG(LS(TAB)))  &mkp MB4            &kp LG(H)       &mkp MB5         &kp LA(LG(TAB))
 &trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                   &kp C_BRI_DEC    &kp C_BRI_INC
