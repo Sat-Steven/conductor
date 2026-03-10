@@ -1,7 +1,7 @@
 menu "Conductor custom behaviors"
 
-config ZMK_BEHAVIOR_ALT_TAB_SMART
-    bool "Enable Alt Tab Smart behavior"
+config ZMK_BEHAVIOR_SMART_HOLD_TRIGGER
+    bool "Enable smart hold trigger behavior"
     default y
 
 endmenu
