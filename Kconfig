@@ -1,0 +1,7 @@
+menu "Conductor custom behaviors"
+
+config ZMK_BEHAVIOR_ALT_TAB_SMART
+    bool "Enable Alt Tab Smart behavior"
+    default y
+
+endmenu
