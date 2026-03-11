@@ -1,7 +1,9 @@
 #define DT_DRV_COMPAT zmk_behavior_smart_hold_trigger
 
 #include <zephyr/device.h>
+#include <zephyr/init.h>
 #include <zephyr/kernel.h>
+#include <drivers/behavior.h>
 #include <zmk/behavior.h>
 #include <zmk/hid.h>
 #include <dt-bindings/zmk/hid_usage.h>
@@ -38,6 +40,8 @@ static void release_hold_work_handler(struct k_work *work) {
 
 static int smart_hold_trigger_press(struct zmk_behavior_binding *binding,
                                     struct zmk_behavior_binding_event event) {
+    ARG_UNUSED(event);
+
     const struct device *dev = zmk_behavior_get_binding(binding->behavior_dev);
     const struct smart_hold_trigger_config *config = dev->config;
 
@@ -72,22 +76,22 @@ static int smart_hold_trigger_release(struct zmk_behavior_binding *binding,
 }
 
 static const struct behavior_driver_api smart_hold_trigger_driver_api = {
-    .press = smart_hold_trigger_press,
-    .release = smart_hold_trigger_release,
+    .binding_pressed = smart_hold_trigger_press,
+    .binding_released = smart_hold_trigger_release,
 };
 
-#define SMART_HOLD_TRIGGER_INIT(n)                                              \
+#define SMART_HOLD_TRIGGER_INIT(n)                                                \
     static const struct smart_hold_trigger_config smart_hold_trigger_config_##n = { \
-        .wait_time_ms = DT_INST_PROP(n, wait_time_ms),                          \
-    };                                                                          \
-                                                                                \
-    BEHAVIOR_DT_INST_DEFINE(n,                                                  \
-                            NULL,                                               \
-                            NULL,                                               \
-                            &smart_state,                                       \
-                            &smart_hold_trigger_config_##n,                     \
-                            POST_KERNEL,                                        \
-                            CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,                \
+        .wait_time_ms = DT_INST_PROP(n, wait_time_ms),                            \
+    };                                                                            \
+                                                                                  \
+    BEHAVIOR_DT_INST_DEFINE(n,                                                    \
+                            NULL,                                                 \
+                            NULL,                                                 \
+                            &smart_state,                                         \
+                            &smart_hold_trigger_config_##n,                       \
+                            POST_KERNEL,                                          \
+                            CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,                  \
                             &smart_hold_trigger_driver_api);
 
 static int smart_hold_trigger_global_init(void) {
