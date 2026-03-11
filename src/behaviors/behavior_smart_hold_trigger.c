@@ -5,8 +5,11 @@
 #include <zephyr/kernel.h>
 #include <drivers/behavior.h>
 #include <zmk/behavior.h>
+
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 #include <zmk/hid.h>
 #include <dt-bindings/zmk/hid_usage.h>
+#endif
 
 struct smart_hold_trigger_config {
     int wait_time_ms;
@@ -14,12 +17,16 @@ struct smart_hold_trigger_config {
 
 struct smart_hold_trigger_data {
     bool active;
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     uint32_t hold_usage;
     uint32_t trigger_usage;
     struct k_work_delayable release_work;
+#endif
 };
 
 static struct smart_hold_trigger_data smart_state;
+
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 
 static uint32_t param_to_usage(uint32_t param) {
     return ZMK_HID_USAGE(HID_USAGE_KEY, param);
@@ -38,10 +45,13 @@ static void release_hold_work_handler(struct k_work *work) {
     smart_state.trigger_usage = 0;
 }
 
+#endif
+
 static int smart_hold_trigger_press(struct zmk_behavior_binding *binding,
                                     struct zmk_behavior_binding_event event) {
     ARG_UNUSED(event);
 
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     const struct device *dev = zmk_behavior_get_binding(binding->behavior_dev);
     const struct smart_hold_trigger_config *config = dev->config;
 
@@ -64,6 +74,9 @@ static int smart_hold_trigger_press(struct zmk_behavior_binding *binding,
     zmk_hid_release(trigger_usage);
 
     k_work_reschedule(&smart_state.release_work, K_MSEC(config->wait_time_ms));
+#else
+    ARG_UNUSED(binding);
+#endif
 
     return ZMK_BEHAVIOR_OPAQUE;
 }
@@ -80,20 +93,21 @@ static const struct behavior_driver_api smart_hold_trigger_driver_api = {
     .binding_released = smart_hold_trigger_release,
 };
 
-#define SMART_HOLD_TRIGGER_INIT(n)                                                \
+#define SMART_HOLD_TRIGGER_INIT(n)                                                  \
     static const struct smart_hold_trigger_config smart_hold_trigger_config_##n = { \
-        .wait_time_ms = DT_INST_PROP(n, wait_time_ms),                            \
-    };                                                                            \
-                                                                                  \
-    BEHAVIOR_DT_INST_DEFINE(n,                                                    \
-                            NULL,                                                 \
-                            NULL,                                                 \
-                            &smart_state,                                         \
-                            &smart_hold_trigger_config_##n,                       \
-                            POST_KERNEL,                                          \
-                            CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,                  \
+        .wait_time_ms = DT_INST_PROP(n, wait_time_ms),                              \
+    };                                                                              \
+                                                                                    \
+    BEHAVIOR_DT_INST_DEFINE(n,                                                      \
+                            NULL,                                                   \
+                            NULL,                                                   \
+                            &smart_state,                                           \
+                            &smart_hold_trigger_config_##n,                         \
+                            POST_KERNEL,                                            \
+                            CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,                    \
                             &smart_hold_trigger_driver_api);
 
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 static int smart_hold_trigger_global_init(void) {
     smart_state.active = false;
     smart_state.hold_usage = 0;
@@ -101,6 +115,12 @@ static int smart_hold_trigger_global_init(void) {
     k_work_init_delayable(&smart_state.release_work, release_hold_work_handler);
     return 0;
 }
+#else
+static int smart_hold_trigger_global_init(void) {
+    smart_state.active = false;
+    return 0;
+}
+#endif
 
 SYS_INIT(smart_hold_trigger_global_init, APPLICATION, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
 
