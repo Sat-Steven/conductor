@@ -38,7 +38,7 @@ static void release_hold_work_handler(struct k_work *work) {
 
 static int smart_hold_trigger_press(struct zmk_behavior_binding *binding,
                                     struct zmk_behavior_binding_event event) {
-    const struct device *dev = zmk_behavior_get_binding(binding)->behavior_dev;
+    const struct device *dev = zmk_behavior_get_binding(binding->behavior_dev);
     const struct smart_hold_trigger_config *config = dev->config;
 
     uint32_t hold_usage = param_to_usage(binding->param1);
