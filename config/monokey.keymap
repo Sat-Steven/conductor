@@ -54,6 +54,13 @@
             toggle-mode = "off";
         };
 
+        smart_hold_trigger: smart_hold_trigger {
+            compatible = "zmk,behavior-smart-hold-trigger";
+            #binding-cells = <2>;
+            wait-time-ms = <700>;
+            label = "SMART_HOLD_TRIGGER";
+        };
+
         BT0_win: BT0_Win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
