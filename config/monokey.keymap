@@ -190,10 +190,10 @@
 
         ARROW_win {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &smart_hold_trigger LALT LS(TAB)   &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &smart_hold_trigger LALT TAB
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))   &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
-&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                  &kp LG(UP_ARROW)                  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                  &smart_hold_trigger LALT LS(TAB)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &smart_hold_trigger LALT TAB
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                        &kp LC(LS(TAB))                   &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
+&trans  &trans  &trans                &trans                &trans                &trans  &trans  &trans                                                                &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -201,10 +201,10 @@
 
         ARROW_ipad {
             bindings = <
-&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                         &ipad_cotrlcntr      &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
-&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                         &smart_hold_trigger LGUI LS(TAB)      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW    &smart_hold_trigger LGUI TAB
-&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                               &kp LA(LG(LS(TAB)))  &kp LG(LBKT)            &kp LG(H)       &kp LG(RBKT)         &kp LA(LG(TAB))
-&trans  &trans  &trans                &trans                &trans                &kp LG(SPACE)  &trans  &trans                                                   &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &kp LS(LC(NUMBER_1))  &kp LS(LC(NUMBER_2))  &kp LS(LC(NUMBER_3))                         &ipad_cotrlcntr                   &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &ipad_appswtch
+&trans  &trans  &kp LS(LC(NUMBER_4))  &kp LS(LC(N5))        &kp LS(LC(NUMBER_6))                         &smart_hold_trigger LGUI LS(TAB)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &smart_hold_trigger LGUI TAB
+&trans  &trans  &kp LS(LC(N7))        &kp LS(LC(N8))        &kp LS(LC(N9))                               &kp LS(LC(TAB))                   &kp LG(LBKT)        &kp LG(H)       &kp LG(RBKT)     &kp LS(LC(TAB))
+&trans  &trans  &trans                &trans                &trans                &kp LG(SPACE)  &trans  &trans                                                                &kp C_BRI_DEC    &kp C_BRI_INC
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
