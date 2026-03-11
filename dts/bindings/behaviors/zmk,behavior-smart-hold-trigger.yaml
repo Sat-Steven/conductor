@@ -1,0 +1,11 @@
+description: Smart hold + trigger behavior
+
+compatible: "zmk,behavior-smart-hold-trigger"
+
+include: two_param.yaml
+
+properties:
+  wait-time-ms:
+    type: int
+    required: false
+    default: 700
