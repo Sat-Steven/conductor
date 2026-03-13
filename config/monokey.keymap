@@ -195,7 +195,7 @@
 
         ARROW_win {
             bindings = <
-&trans  &trans  &kp PRINTSCREEN  &kp LS(LG(S))      &kp LS(LA(T))                  &kp LG(UP_ARROW)                  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
+&trans  &trans  &kp PRINTSCREEN  &kp LS(LG(S))      &kp LA(LC(T))                  &kp LG(UP_ARROW)                  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp LG(DOWN_ARROW)
 &trans  &trans  &trans           &kp LC(LS(EQUAL))  &kp LC(EQUAL)                  &smart_hold_trigger LALT LS(TAB)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &smart_hold_trigger LALT TAB
 &trans  &trans  &trans           &trans             &trans                         &kp LC(LS(TAB))                   &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
 &trans  &trans  &trans           &trans             &trans         &trans  &trans  &trans                                                                &kp C_BRI_DEC    &kp C_BRI_INC
