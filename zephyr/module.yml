@@ -1,5 +1,7 @@
+name: conductor
 build:
-  cmake-ext: true
+  cmake: .
   kconfig: Kconfig
   settings:
     board_root: .
+    dts_root: .
