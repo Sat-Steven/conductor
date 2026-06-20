@@ -9,3 +9,7 @@ properties:
     type: int
     required: false
     default: 700
+  tap-time-ms:
+    type: int
+    required: false
+    default: 30
