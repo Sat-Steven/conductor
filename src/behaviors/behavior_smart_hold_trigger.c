@@ -12,20 +12,37 @@
 
 struct smart_hold_trigger_config {
     int wait_time_ms;
+    int tap_time_ms;
 };
 
 struct smart_hold_trigger_data {
     bool active;
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+    bool trigger_active;
     uint32_t hold_encoded;
     uint32_t trigger_encoded;
-    struct k_work_delayable release_work;
+    struct k_work_delayable trigger_release_work;
+    struct k_work_delayable hold_release_work;
 #endif
 };
 
 static struct smart_hold_trigger_data smart_state;
 
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+
+static void release_trigger_work_handler(struct k_work *work) {
+    ARG_UNUSED(work);
+
+    if (!smart_state.trigger_active) {
+        return;
+    }
+
+    raise_zmk_keycode_state_changed_from_encoded(
+        smart_state.trigger_encoded, false, k_uptime_get());
+
+    smart_state.trigger_active = false;
+    smart_state.trigger_encoded = 0;
+}
 
 static void release_hold_work_handler(struct k_work *work) {
     ARG_UNUSED(work);
@@ -34,12 +51,19 @@ static void release_hold_work_handler(struct k_work *work) {
         return;
     }
 
+    if (smart_state.trigger_active) {
+        k_work_cancel_delayable(&smart_state.trigger_release_work);
+        raise_zmk_keycode_state_changed_from_encoded(
+            smart_state.trigger_encoded, false, k_uptime_get());
+        smart_state.trigger_active = false;
+        smart_state.trigger_encoded = 0;
+    }
+
     raise_zmk_keycode_state_changed_from_encoded(
         smart_state.hold_encoded, false, k_uptime_get());
 
     smart_state.active = false;
     smart_state.hold_encoded = 0;
-    smart_state.trigger_encoded = 0;
 }
 
 #endif
@@ -53,26 +77,43 @@ static int smart_hold_trigger_press(struct zmk_behavior_binding *binding,
     uint32_t hold_encoded = binding->param1;
     uint32_t trigger_encoded = binding->param2;
 
+    if (smart_state.trigger_active) {
+        k_work_cancel_delayable(&smart_state.trigger_release_work);
+        raise_zmk_keycode_state_changed_from_encoded(
+            smart_state.trigger_encoded, false, event.timestamp);
+        smart_state.trigger_active = false;
+        smart_state.trigger_encoded = 0;
+    }
+
     if (!smart_state.active || smart_state.hold_encoded != hold_encoded) {
         if (smart_state.active) {
+            k_work_cancel_delayable(&smart_state.hold_release_work);
             raise_zmk_keycode_state_changed_from_encoded(
                 smart_state.hold_encoded, false, event.timestamp);
         }
 
         smart_state.active = true;
         smart_state.hold_encoded = hold_encoded;
-        smart_state.trigger_encoded = trigger_encoded;
 
         raise_zmk_keycode_state_changed_from_encoded(
             hold_encoded, true, event.timestamp);
     }
 
+    smart_state.trigger_encoded = trigger_encoded;
+    smart_state.trigger_active = true;
+
     raise_zmk_keycode_state_changed_from_encoded(
         trigger_encoded, true, event.timestamp);
-    raise_zmk_keycode_state_changed_from_encoded(
-        trigger_encoded, false, event.timestamp);
 
-    k_work_reschedule(&smart_state.release_work, K_MSEC(config->wait_time_ms));
+    k_work_reschedule(&smart_state.trigger_release_work,
+                      K_MSEC(config->tap_time_ms));
+
+    int hold_wait_ms = config->wait_time_ms;
+    if (hold_wait_ms <= config->tap_time_ms) {
+        hold_wait_ms = config->tap_time_ms + 1;
+    }
+
+    k_work_reschedule(&smart_state.hold_release_work, K_MSEC(hold_wait_ms));
 #else
     ARG_UNUSED(binding);
     ARG_UNUSED(event);
@@ -96,6 +137,7 @@ static const struct behavior_driver_api smart_hold_trigger_driver_api = {
 #define SMART_HOLD_TRIGGER_INIT(n)                                                  \
     static const struct smart_hold_trigger_config smart_hold_trigger_config_##n = { \
         .wait_time_ms = DT_INST_PROP(n, wait_time_ms),                              \
+        .tap_time_ms = DT_INST_PROP(n, tap_time_ms),                                \
     };                                                                              \
                                                                                     \
     BEHAVIOR_DT_INST_DEFINE(n,                                                      \
@@ -110,9 +152,11 @@ static const struct behavior_driver_api smart_hold_trigger_driver_api = {
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 static int smart_hold_trigger_global_init(void) {
     smart_state.active = false;
+    smart_state.trigger_active = false;
     smart_state.hold_encoded = 0;
     smart_state.trigger_encoded = 0;
-    k_work_init_delayable(&smart_state.release_work, release_hold_work_handler);
+    k_work_init_delayable(&smart_state.trigger_release_work, release_trigger_work_handler);
+    k_work_init_delayable(&smart_state.hold_release_work, release_hold_work_handler);
     return 0;
 }
 #else
