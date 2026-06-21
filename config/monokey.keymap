@@ -42,16 +42,28 @@
             bindings = <&kp>, <&kp>;
         };
 
+        tog_on: tog_on {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            toggle-mode = "on";
+        };
+
+        tog_off: tog_off {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            toggle-mode = "off";
+        };
+
         win_profile_0: win_profile_0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 9>;
+            bindings = <&bt BT_SEL 0 &tog_off 7 &tog_on 9>;
         };
 
         ipad_profile_1: ipad_profile_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 7>;
+            bindings = <&bt BT_SEL 1 &tog_off 9 &tog_on 7>;
         };
     };
 
