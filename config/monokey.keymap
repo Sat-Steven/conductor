@@ -23,6 +23,20 @@
             key-positions = <17 18>;
         };
 
+        gesture_win {
+            bindings = <&mo 13>;
+            key-positions = <7 8>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        gesture_ipad {
+            bindings = <&mo 16>;
+            key-positions = <7 8>;
+            timeout-ms = <50>;
+            layers = <1>;
+        };
+
         mb3 {
             bindings = <&mkp MB3>;
             key-positions = <19 18>;
@@ -108,7 +122,7 @@
 &kp Q             &kp W         &kp E         &kp R                 &kp T                                               &kp Y         &kp U  &kp I      &kp O         &kp P
 &kp A             &kp S         &kp D         &kp F                 &kp G                                               &kp H         &kp J  &kp K      &kp L         &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B                                               &kp N         &kp M  &kp COMMA  &kp PERIOD    &mt RIGHT_SHIFT SLASH
-&kp TAB           &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LCTRL SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 7 RETURN                    &kp C_VOL_DN  &kp C_VOLUME_UP
+&kp TAB           &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LCTRL SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 14 RETURN                   &kp C_VOL_DN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -119,7 +133,7 @@
 &kp Q             &kp W      &kp E         &kp R                 &kp T                                                  &kp Y        &kp U  &kp I      &kp O         &kp P
 &kp A             &kp S      &kp D         &kp F                 &kp G                                                  &kp H        &kp J  &kp K      &kp L         &kp MINUS
 &mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                 &kp B                                                  &kp N        &kp M  &kp COMMA  &kp PERIOD    &mt RIGHT_SHIFT SLASH
-&kp TAB           &kp GLOBE  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LEFT_GUI SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 8 ENTER                    &kp C_VOL_DN  &kp C_VOLUME_UP
+&kp TAB           &kp GLOBE  &kp LEFT_ALT  &mt LEFT_SHIFT LANG2  &mt LEFT_GUI SPACE  &lt 2 LANGUAGE_1  &lt 3 BACKSPACE  &lt 15 ENTER                    &kp C_VOL_DN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -170,26 +184,22 @@
             >;
         };
 
-        ARROW_win {
+        layer_7 {
             bindings = <
-&trans  &trans  &kp PRINTSCREEN  &kp LS(LG(S))      &kp LA(LC(T))                  &kp LG(LS(LEFT_ARROW))            &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp RG(RS(RIGHT))
-&trans  &trans  &kp LC(LA(G))    &kp LC(LS(EQUAL))  &kp LC(EQUAL)                  &kp LA(LS(TAB))                   &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RC(TAB))
-&trans  &trans  &trans           &trans             &trans                         &kp LC(LS(TAB))                   &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
-&trans  &trans  &trans           &trans             &trans         &trans  &trans  &trans                                                                &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
-        ARROW_ipad {
+        layer_8 {
             bindings = <
-&trans  &trans  &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &trans                                &ipad_cotrlcntr                   &kp LA(LEFT_ARROW)  &kp UP_ARROW    &kp LA(RIGHT)    &ipad_appswtch
-&trans  &trans  &trans                &kp LG(LS(EQUAL))     &kp LG(EQUAL)                         &kp LG(LS(TAB))                   &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
-&trans  &trans  &trans                &trans                &trans                                &kp LS(LC(TAB))                   &kp LG(LBKT)        &kp LG(H)       &kp LG(RBKT)     &kp LC(TAB)
-&trans  &trans  &trans                &trans                &trans         &kp LG(SPACE)  &trans  &trans                                                                &kp C_BRI_DEC    &kp C_BRI_INC
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         layer_9 {
@@ -233,6 +243,37 @@
 &none  &none  &none  &none  &none    &none  &none  &kp LC(DOWN)  &none  &none
 &none  &none  &none  &none  &none    &none  &kp LC(RIGHT)  &none  &kp LC(LEFT)  &none
 &none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none
+            >;
+        };
+
+        ARROW_win {
+            bindings = <
+&trans  &trans  &kp PRINTSCREEN  &kp LS(LG(S))      &kp LA(LC(T))                  &kp LG(LS(LEFT_ARROW))  &kp LG(LEFT_ARROW)  &kp UP_ARROW    &kp LG(RIGHT)    &kp RG(RS(RIGHT))
+&trans  &trans  &kp LC(LA(G))    &kp LC(LS(EQUAL))  &kp LC(EQUAL)                  &kp LA(LS(TAB))         &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RA(RC(TAB))
+&trans  &trans  &trans           &trans             &trans                         &kp LC(LS(TAB))         &mkp MB4            &kp LG(D)       &mkp MB5         &kp LC(TAB)
+&trans  &trans  &trans           &trans             &trans         &trans  &trans  &trans                                      &kp C_BRI_DEC    &kp C_BRI_INC
+            >;
+
+            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+        };
+
+        ARROW_ipad {
+            bindings = <
+&trans  &trans  &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &trans                                &ipad_cotrlcntr  &kp LA(LEFT_ARROW)  &kp UP_ARROW    &kp LA(RIGHT)    &ipad_appswtch
+&trans  &trans  &trans                &kp LG(LS(EQUAL))     &kp LG(EQUAL)                         &kp LG(LS(TAB))  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(TAB)
+&trans  &trans  &trans                &trans                &trans                                &kp LS(LC(TAB))  &kp LG(LBKT)        &kp LG(H)       &kp LG(RBKT)     &kp LC(TAB)
+&trans  &trans  &trans                &trans                &trans         &kp LG(SPACE)  &trans  &trans                                      &kp C_BRI_DEC    &kp C_BRI_INC
+            >;
+
+            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
+        };
+
+        gesture_layer_ipad {
+            bindings = <
+&none  &none  &none  &none  &none    &none  &none  &kp LG(TAB)  &none  &none
+&none  &none  &none  &none  &none    &none  &kp LG(LS(TAB))  &none  &kp LG(TAB)  &none
+&none  &none  &none  &none  &none    &none  &none  &kp LG(H)  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };
