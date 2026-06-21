@@ -28,10 +28,6 @@
             key-positions = <19 18>;
         };
 
-        mute {
-            bindings = <&kp LC(C_MUTE)>;
-            key-positions = <38 39>;
-        };
     };
 
     behaviors {
