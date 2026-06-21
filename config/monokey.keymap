@@ -79,7 +79,7 @@
 &kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P
 &kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K  &kp L  &kp MINUS
 &mt_shift LSHIFT Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp DOT  &mt_shift RSHIFT FSLH
-&kp TAB  &kp LGUI  &kp LALT  &mt_shift LSHIFT LANG2  &mt LCTRL SPACE  &lt 1 LANG1    &lt 2 BSPC  &lt 9 ENTER  &kp C_VOL_DN  &kp C_VOL_UP
+&kp TAB  &kp LGUI  &kp LALT  &mt_shift LSHIFT LANG2  &mt LCTRL SPACE  &lt 1 LANG1    &lt 2 BSPC  &lt 3 ENTER  &kp C_VOL_DN  &kp C_VOL_UP
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
@@ -105,11 +105,13 @@
 
         move_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &kp LC(UP)  &kp LC(LEFT)  &kp UP  &kp LC(RIGHT)  &kp LC(DOWN)
-&trans  &trans  &trans  &trans  &trans    &kp LC(A)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LC(E)
-&trans  &trans  &trans  &trans  &trans    &kp C_PREV  &kp LG(LEFT)  &none  &kp LG(RIGHT)  &kp C_NEXT
-&none  &none  &none  &none  &none  &none    &none  &none  &kp C_BRI_DN  &kp C_BRI_UP
+&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &kp LG(UP)  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &kp LG(DOWN)
+&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LA(LS(TAB))  &kp LEFT  &kp DOWN  &kp RIGHT  &kp RA(RC(TAB))
+&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LC(LS(TAB))  &mkp MB4  &kp LG(D)  &mkp MB5  &kp LC(TAB)
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
         mouse_layer {
@@ -148,9 +150,8 @@
          * (assign one to a device in the Companion "Per-Device" tab; &trans
          * inherits the shared keymap, change only the keys that differ).
          * Migration plan:
-         *   layer_8  = iPad base overlay
-         *   layer_9  = Windows move
-         *   layer_10 = iPad move
+         *   layer_8 = iPad base overlay
+         *   layer_9-11 remain per-device overlay spares
          */
         layer_7 {
             bindings = <
@@ -168,30 +169,26 @@
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &lt 10 ENTER  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
         layer_9 {
             bindings = <
-&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &kp LG(UP)  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &kp LG(DOWN)
-&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LA(LS(TAB))  &kp LEFT  &kp DOWN  &kp RIGHT  &kp RA(RC(TAB))
-&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LC(LS(TAB))  &mkp MB4  &kp LG(D)  &mkp MB5  &kp LC(TAB)
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
         layer_10 {
             bindings = <
-&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
-&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
-&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
-&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
         layer_11 {
