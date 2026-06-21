@@ -162,11 +162,13 @@
         };
 
         layer_8 {
+            /* iPad base overlay: keep default_layer via &trans and override only
+             * the keys that differ. TODO: old L31 used 0xC029D; purpose unclear. */
             bindings = <
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &lt 10 ENTER  &trans  &trans  &trans
             >;
         };
 
