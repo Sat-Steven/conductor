@@ -47,7 +47,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 9>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
         };
 
         ipad_profile_1: ipad_profile_1 {
@@ -55,7 +55,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 7>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
         };
     };
 
