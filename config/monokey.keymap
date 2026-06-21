@@ -169,7 +169,7 @@
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &lt 14 ENTER  &trans  &trans  &trans
             >;
         };
 
@@ -222,6 +222,17 @@
 &none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
+        };
+
+        layer_14 {
+            bindings = <
+&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
+&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
+&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
+&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
+            >;
+
+            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
     };
