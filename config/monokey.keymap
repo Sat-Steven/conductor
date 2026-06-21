@@ -41,6 +41,18 @@
             hold-while-undecided;
             bindings = <&kp>, <&kp>;
         };
+
+        win_profile_0: win_profile_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 9>;
+        };
+
+        ipad_profile_1: ipad_profile_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &to 7>;
+        };
     };
 
     combos {
@@ -52,9 +64,17 @@
             timeout-ms = <50>;
         };
 
-        gesture {
+        gesture_win {
             bindings = <&mo 13>;
             key-positions = <7 8>;
+            layers = <9>;
+            timeout-ms = <50>;
+        };
+
+        gesture_ipad {
+            bindings = <&mo 11>;
+            key-positions = <7 8>;
+            layers = <7>;
             timeout-ms = <50>;
         };
 
@@ -139,38 +159,31 @@
 
         setting_layer {
             bindings = <
-&out OUT_BLE  &out OUT_USB  &none  &none  &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&out OUT_BLE  &out OUT_USB  &none  &none  &none    &win_profile_0  &ipad_profile_1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &none  &none  &none  &none  &none    &none  &trans  &trans  &tog 12  &scrl_inv
 &none  &trans  &trans  &trans  &none    &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &bootloader  &bt BT_CLR  &bt BT_CLR_ALL
             >;
         };
 
-        /* Spare layers, transparent so they work as per-profile keymap overlays
-         * (assign one to a device in the Companion "Per-Device" tab; &trans
-         * inherits the shared keymap, change only the keys that differ).
-         * Migration plan:
-         *   layer_8 = iPad base overlay
-         *   layer_9-11 remain per-device overlay spares
-         */
         layer_7 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &lt 8 ENTER  &trans  &trans  &trans
             >;
         };
 
         layer_8 {
-            /* iPad base overlay: keep default_layer via &trans and override only
-             * the keys that differ. TODO: old L31 used 0xC029D; purpose unclear. */
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mt LGUI SPACE  &trans    &lt 14 ENTER  &trans  &trans  &trans
+&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
+&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
+&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
+&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
         layer_9 {
@@ -193,10 +206,10 @@
 
         layer_11 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none    &none  &none  &kp LG(TAB)  &none  &none
+&none  &none  &none  &none  &none    &none  &kp LG(LS(TAB))  &none  &kp LG(TAB)  &none
+&none  &none  &none  &none  &none    &none  &none  &kp LG(H)  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };
 
@@ -222,17 +235,6 @@
 &none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
-        };
-
-        layer_14 {
-            bindings = <
-&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
-&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
-&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
-&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
-            >;
-
-            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
     };
