@@ -47,7 +47,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 0>;
         };
 
         ipad_profile_1: ipad_profile_1 {
@@ -55,7 +55,7 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 14>;
         };
     };
 
@@ -71,14 +71,14 @@
         gesture_win {
             bindings = <&mo 13>;
             key-positions = <7 8>;
-            layers = <9>;
+            layers = <0>;
             timeout-ms = <50>;
         };
 
         gesture_ipad {
-            bindings = <&mo 11>;
+            bindings = <&mo 16>;
             key-positions = <7 8>;
-            layers = <7>;
+            layers = <14>;
             timeout-ms = <50>;
         };
 
@@ -172,35 +172,29 @@
 
         layer_7 {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P
-&kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K  &kp L  &kp MINUS
-&mt_shift LSHIFT Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp DOT  &mt_shift RSHIFT FSLH
-&kp TAB  &kp LGUI  &kp LALT  &mt_shift LSHIFT LANG2  &mt LGUI SPACE  &lt 1 LANG1    &lt 2 BSPC  &lt 8 ENTER  &kp C_VOL_DN  &kp C_VOL_UP
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         layer_8 {
             bindings = <
-&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
-&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
-&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
-&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
         };
 
         layer_9 {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P
-&kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K  &kp L  &kp MINUS
-&mt_shift LSHIFT Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp DOT  &mt_shift RSHIFT FSLH
-&kp TAB  &kp LGUI  &kp LALT  &mt_shift LSHIFT LANG2  &mt LCTRL SPACE  &lt 1 LANG1    &lt 2 BSPC  &lt 3 ENTER  &kp C_VOL_DN  &kp C_VOL_UP
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         layer_10 {
@@ -214,10 +208,10 @@
 
         layer_11 {
             bindings = <
-&none  &none  &none  &none  &none    &none  &none  &kp LG(TAB)  &none  &none
-&none  &none  &none  &none  &none    &none  &kp LG(LS(TAB))  &none  &kp LG(TAB)  &none
-&none  &none  &none  &none  &none    &none  &none  &kp LG(H)  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
@@ -241,6 +235,37 @@
 &none  &none  &none  &none  &none    &none  &none  &kp LC(DOWN)  &none  &none
 &none  &none  &none  &none  &none    &none  &kp LC(RIGHT)  &none  &kp LC(LEFT)  &none
 &none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none
+            >;
+        };
+
+        layer_14 {
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I  &kp O  &kp P
+&kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K  &kp L  &kp MINUS
+&mt_shift LSHIFT Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp COMMA  &kp DOT  &mt_shift RSHIFT FSLH
+&kp TAB  &kp LGUI  &kp LALT  &mt_shift LSHIFT LANG2  &mt LGUI SPACE  &lt 1 LANG1    &lt 2 BSPC  &lt 15 ENTER  &kp C_VOL_DN  &kp C_VOL_UP
+            >;
+
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+        };
+
+        layer_15 {
+            bindings = <
+&trans  &trans  &kp LS(LC(N1))  &kp LS(LC(N2))  &kp LS(LC(N3))    &trans  &kp LG(LEFT)  &kp UP  &kp LG(RIGHT)  &trans
+&trans  &trans  &kp LS(LC(N4))  &kp LS(LC(N5))  &kp LS(LC(N6))    &kp LG(LS(TAB))  &kp LEFT  &kp DOWN  &kp LG(TAB)  &trans
+&trans  &trans  &kp LS(LC(N7))  &kp LS(LC(N8))  &kp LS(LC(N9))    &kp LA(LG(LS(TAB)))  &kp LG(LBKT)  &kp LG(H)  &kp LG(RBKT)  &kp LA(LG(TAB))
+&trans  &trans  &trans  &trans  &trans  &kp LG(SPACE)    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP
+            >;
+
+            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;
+        };
+
+        layer_16 {
+            bindings = <
+&none  &none  &none  &none  &none    &none  &none  &kp LG(TAB)  &none  &none
+&none  &none  &none  &none  &none    &none  &kp LG(LS(TAB))  &none  &kp LG(TAB)  &none
+&none  &none  &none  &none  &none    &none  &none  &kp LG(H)  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };

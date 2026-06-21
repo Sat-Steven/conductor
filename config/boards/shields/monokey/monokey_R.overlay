@@ -84,7 +84,7 @@
         timeout-ms = <180>;
         cooldown-ms = <220>;
         tap-ms = <30>;
-        layer-id = <11>;
+        layer-id = <16>;
         positions = <7 27 16 18>; /* up=I, down=COMMA, left=J, right=L */
     };
 
@@ -117,7 +117,7 @@
         };
 
         gesture_layer_ipad {
-            layers = <11>;
+            layers = <16>;
             input-processors = <&zip_xy_scaler 1 2 &trackball_gestures_ipad>;
         };
 
