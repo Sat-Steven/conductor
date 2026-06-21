@@ -84,7 +84,7 @@
         timeout-ms = <180>;
         cooldown-ms = <220>;
         tap-ms = <30>;
-        layer-id = <16>;
+        layer-id = <11>;
         positions = <7 27 16 18>; /* up=I, down=COMMA, left=J, right=L */
     };
 
@@ -95,13 +95,13 @@
         /* ベース: オートマウスレイヤー (AML)
          * トラックボール操作時にレイヤー4 (MOUSE) を自動有効化
          * 60000ms (60秒) のタイムアウトで自動解除 */
-        input-processors = <&zip_temp_layer 4 60000 &zip_xy_scaler 1 2>;
+        input-processors = <&zip_temp_layer 6 60000 &zip_xy_scaler 1 2>;
 
         /* スクロールレイヤー: レイヤー5 (SCROLL) がアクティブ時
          * XY移動をスクロールホイールに変換
          * スクロール速度をスケーリング (1/8) で調整 */
         scroll_layer {
-            layers = <5>;
+            layers = <7>;
             // SMOOTH_SCROLLING: emit high-resolution wheel units. The host's
             // Resolution Multiplier divides them back to whole notches, so the
             // 1/16 down-scale that was here is removed (otherwise the value is
@@ -117,7 +117,7 @@
         };
 
         gesture_layer_ipad {
-            layers = <16>;
+            layers = <11>;
             input-processors = <&zip_xy_scaler 1 2 &trackball_gestures_ipad>;
         };
 
