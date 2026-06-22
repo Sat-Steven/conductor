@@ -70,7 +70,7 @@
         timeout-ms = <180>;
         cooldown-ms = <220>;
         tap-ms = <30>;
-        layer-id = <13>;
+        layer-id = <17>;
         positions = <7 27 16 18>; /* up=I, down=COMMA, left=J, right=L */
     };
 
@@ -112,7 +112,7 @@
         };
 
         gesture_layer {
-            layers = <13>;
+            layers = <17>;
             input-processors = <&zip_xy_scaler 1 2 &trackball_gestures>;
         };
 

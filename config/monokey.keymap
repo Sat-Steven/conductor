@@ -118,6 +118,11 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
+        win_gesture_layer {
+            if-layers = <0 13>;
+            then-layer = <17>;
+        };
+
         ipad_gesture_layer {
             if-layers = <1 13>;
             then-layer = <16>;
@@ -250,9 +255,9 @@
 
         gesture_layer {
             bindings = <
-&none  &none  &none  &none  &none    &none  &none  &kp LC(DOWN)  &none  &none
-&none  &none  &none  &none  &none    &none  &kp LC(RIGHT)  &none  &kp LC(LEFT)  &none
-&none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
+&none  &none  &none  &none  &none    &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none    &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none    &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };
@@ -284,6 +289,15 @@
 &none  &none  &none  &none  &none    &none  &none  &ipad_appswtch  &none  &none
 &none  &none  &none  &none  &none    &none  &kp LG(LEFT_ARROW)  &none  &kp LG(RIGHT_ARROW)  &none
 &none  &none  &none  &none  &none    &none  &none  &ipad_home  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none
+            >;
+        };
+
+        gesture_layer_win {
+            bindings = <
+&none  &none  &none  &none  &none    &none  &none  &kp LC(DOWN)  &none  &none
+&none  &none  &none  &none  &none    &none  &kp LC(RIGHT)  &none  &kp LC(LEFT)  &none
+&none  &none  &none  &none  &none    &none  &none  &kp LC(UP)  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };
