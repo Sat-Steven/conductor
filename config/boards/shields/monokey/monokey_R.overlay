@@ -74,6 +74,20 @@
         positions = <7 27 16 18>; /* up=I, down=COMMA, left=J, right=L */
     };
 
+    trackball_gestures_ipad: trackball_gestures_ipad {
+        compatible = "zmk,input-processor-gestures";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        x-code = <INPUT_REL_X>;
+        y-code = <INPUT_REL_Y>;
+        threshold = <120>;
+        timeout-ms = <180>;
+        cooldown-ms = <220>;
+        tap-ms = <30>;
+        layer-id = <16>;
+        positions = <7 27 16 18>; /* up=I, down=COMMA, left=J, right=L */
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -100,6 +114,11 @@
         gesture_layer {
             layers = <13>;
             input-processors = <&zip_xy_scaler 1 2 &trackball_gestures>;
+        };
+
+        gesture_layer_ipad {
+            layers = <16>;
+            input-processors = <&zip_xy_scaler 1 2 &trackball_gestures_ipad>;
         };
 
         /* 精密モード: レイヤー12 (PRECISION) がアクティブ時、
