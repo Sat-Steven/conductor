@@ -23,18 +23,10 @@
             key-positions = <17 18>;
         };
 
-        gesture_win {
+        gesture {
             bindings = <&mo 13>;
             key-positions = <7 8>;
             timeout-ms = <50>;
-            layers = <0>;
-        };
-
-        gesture_ipad {
-            bindings = <&mo 16>;
-            key-positions = <7 8>;
-            timeout-ms = <50>;
-            layers = <1>;
         };
 
         mb3 {
@@ -122,6 +114,15 @@
     };
 
     macros {};
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        ipad_gesture_layer {
+            if-layers = <1 13>;
+            then-layer = <16>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
