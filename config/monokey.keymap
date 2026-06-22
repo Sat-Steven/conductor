@@ -96,7 +96,19 @@
                 <&macro_press>,
                 <&kp GLOBE>,
                 <&macro_tap>,
-                <&kp UP>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp GLOBE>;
+        };
+
+        ipad_home: ipad_home {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp H>,
                 <&macro_release>,
                 <&kp GLOBE>;
         };
@@ -274,8 +286,8 @@
         gesture_layer_ipad {
             bindings = <
 &none  &none  &none  &none  &none    &none  &none  &ipad_appswtch  &none  &none
-&none  &none  &none  &none  &none    &none  &kp LG(LS(TAB))  &none  &kp LG(TAB)  &none
-&none  &none  &none  &none  &none    &none  &none  &kp LG(H)  &none  &none
+&none  &none  &none  &none  &none    &none  &kp LG(LEFT_ARROW)  &none  &kp LG(RIGHT_ARROW)  &none
+&none  &none  &none  &none  &none    &none  &none  &ipad_home  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none
             >;
         };
