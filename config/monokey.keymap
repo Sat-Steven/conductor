@@ -27,14 +27,14 @@
             bindings = <&mo 13>;
             key-positions = <7 8>;
             timeout-ms = <50>;
-            layers = <17>;
+            layers = <0>;
         };
 
         gesture_ipad {
             bindings = <&mo 16>;
             key-positions = <7 8>;
             timeout-ms = <50>;
-            layers = <18>;
+            layers = <1>;
         };
 
         mb3 {
@@ -70,23 +70,18 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 1 &tog_off 18>,
-                <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 200>,
-                <&tog_on 17>;
+                <&to 0>;
         };
 
         BT1_ipad: BT1_ipad {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 1 &tog_off 17>,
-                <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 200>,
-                <&tog_on 18>,
-                <&tog_on 1>;
+                <&to 1>;
         };
 
         ipad_appswtch: ipad_appswtch {
@@ -292,22 +287,5 @@
             >;
         };
 
-        mode_win {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
-            >;
-        };
-
-        mode_ipad {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
-            >;
-        };
     };
 };
